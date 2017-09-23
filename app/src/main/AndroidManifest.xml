@@ -9,7 +9,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/crosss"
-        android:label="Cross Word Puzzle"
+        android:label="CrossWord Puzzle Challenge"
         android:roundIcon="@drawable/crosss"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
