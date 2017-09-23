@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:background="@drawable/dotted_border"
+    android:layout_height="wrap_content"
+    tools:context="com.swaqny.crossword.puzzl.challenge.ui.gameplay.PauseDialogFragment">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="@dimen/_20sdp"
+        android:padding="@dimen/_10sdp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llTop"
+            android:layout_centerHorizontal="true"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="@dimen/activity_vertical_margin" >
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                    android:text="Time"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                    android:id="@+id/tvTimePause"
+                    android:text="@string/app_name"
+                    android:gravity="center"
+                    android:textSize="@dimen/wordsearchactivity_indicator_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.50"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="@dimen/activity_vertical_margin" >
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                    android:text="Score"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                    android:id="@+id/tvScorePause"
+                    android:text="@string/app_name"
+                    android:gravity="center"
+                    android:textSize="@dimen/wordsearchactivity_indicator_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_margin_separation"
+            android:text="Resume"
+            android:id="@+id/bResume" />
+
+        <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_margin_separation"
+            android:text="Restart"
+            android:id="@+id/bRestart" />
+
+        <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_margin_separation"
+            android:text="Exit to Menu"
+            android:id="@+id/bQuit" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,198 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context="com.swaqny.crossword.puzzl.challenge.ui.gameplay.WordSearchActivity">
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:layout_margin="@dimen/_2sdp"
+            android:background="@drawable/dotted_border"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                android:paddingRight="@dimen/wordsearchactivity_indicator_text_padding_left"
+                android:text="Time"
+                android:textSize="20sp"
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                android:id="@+id/tvTimer"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                android:id="@+id/tvTimerplus"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                    android:id="@+id/countSum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/wordsearchactivity_indicator_text_padding_left"
+                    android:text="0"
+                    android:textSize="@dimen/_15sdp" />
+
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="/"
+                    android:textSize="@dimen/_14sdp" />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                    android:id="@+id/numberOfquetion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="  5"
+                    android:textSize="@dimen/_18sdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                    android:id="@+id/numberOfLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="level  "
+                    android:textSize="@dimen/_10sdp" />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                    android:id="@+id/countLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/wordsearchactivity_indicator_text_padding_left"
+                    android:textSize="@dimen/_15sdp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_2sdp"
+            android:layout_weight="0.70"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:background="@drawable/dotted_border"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/_3sdp">
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/wordsearchactivity_indicator_text_padding_left"
+                android:text="Score"
+                android:textSize="20sp" />
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textSize="20sp"  />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.swaqny.crossword.puzzl.challenge.ui.gameplay.WordSearchViewPager
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/_5sdp"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50">
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                android:id="@+id/bPause"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:text="Pause"
+                android:layout_marginLeft="@dimen/_3sdp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50">
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                android:id="@+id/bSkip"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:text="Skip"
+                android:layout_marginRight="@dimen/_3sdp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

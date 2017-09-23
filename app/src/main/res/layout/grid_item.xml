@@ -1,0 +1,6 @@
+<com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_item"
+    android:text=" "
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>

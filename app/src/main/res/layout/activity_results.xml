@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:background="@drawable/background"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.swaqny.crossword.puzzl.challenge.ui.ResultsActivity">
+
+    <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/results_title_padding"
+        android:textSize="36sp"
+        android:text="RESULTS"
+        android:textColor="@color/blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+        android:text="New Best Score!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tvBestScoreResultNotify"
+        android:layout_above="@+id/llScoreResult"
+        android:textColor="@color/green"
+        android:textSize="32sp"
+        android:visibility="gone"
+        android:layout_marginBottom="64dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/llScoreResult"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginRight="64dp">
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                android:text="Score"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="24sp"
+                android:layout_height="wrap_content" />
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                android:layout_centerInParent="true"
+                android:text="Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:id="@+id/tvScoreResult" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameTextView
+                android:text="Best Score"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="24sp"
+                android:layout_height="wrap_content" />
+
+            <com.swaqny.crossword.puzzl.challenge.ui.components.GameBoldTextView
+                android:layout_centerInParent="true"
+                android:text="Score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:id="@+id/tvBestScoreResult" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/llScoreResult"
+        android:id="@+id/bResultSignIn"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/llScoreResult"
+        android:id="@+id/bShowLeaderBoards"
+        android:text="Leaderboard"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+        android:layout_marginTop="@dimen/element_margin_separation"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/bShowLeaderBoards"
+        android:id="@+id/bShowAchievements"
+        android:visibility="gone"
+        android:text="Achievements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_margin_separation"
+            android:text="@string/results_replay"
+            android:id="@+id/bReplay"
+            android:layout_weight="0.50" />
+
+        <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_margin_separation"
+            android:text="@string/results_return_menu"
+            android:id="@+id/bReturnMenu"
+            android:layout_weight="0.50" />
+
+    </LinearLayout>
+
+</RelativeLayout>

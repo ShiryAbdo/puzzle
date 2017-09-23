@@ -1,0 +1,152 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.swaqny.crossword.puzzl.challenge.ui.MenuActivity">
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="@dimen/top_bar"-->
+        <!--android:background="@color/blue">-->
+
+    <!--</FrameLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/word" />
+
+            />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:id="@+id/liner_button"
+                android:orientation="vertical">
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuEasy3"
+                    android:layout_width="fill_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="3x3 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuMedium4"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="4x4 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard5"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="5x5 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="6x6 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="7x7" />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="8x8 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="9x9 " />
+
+                <com.swaqny.crossword.puzzl.challenge.ui.components.GameButton
+                    android:id="@+id/bMenuHard10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:text="10x10 " />
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/bMenuSignIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/element_margin_separation"
+                    android:layout_weight="1"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <!--<FrameLayout-->
+        <!--android:id="@+id/frameLayout"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="@dimen/bottom_bar"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@color/blue">-->
+
+    <!--</FrameLayout>-->
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        ads:adSize="BANNER"
+        android:visibility="gone"
+        ads:adUnitId="@string/ad_id"
+        >
+    </com.google.android.gms.ads.AdView>
+</RelativeLayout>
