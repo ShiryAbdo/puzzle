@@ -28,16 +28,16 @@ LinearLayout liner_button;
         super.onCreate(savedInstanceState);
        // categoryId = R.string.ga_menu_screen;
         // Check if first time opening app, show splash screen
-        SharedPreferences prefs = getSharedPreferences(MENU_PREF_NAME, MODE_PRIVATE);
-        boolean isFirstTime = prefs.getBoolean(FIRST_TIME, true);
-        if (isFirstTime) {
-            SharedPreferences.Editor editor = getSharedPreferences(MENU_PREF_NAME, MODE_PRIVATE).edit();
-            editor.putBoolean(FIRST_TIME, false);
-            editor.apply();
-
-            Intent i = new Intent(getApplicationContext(), SplashActivity.class);
-            startActivity(i);
-        }
+//        SharedPreferences prefs = getSharedPreferences(MENU_PREF_NAME, MODE_PRIVATE);
+//        boolean isFirstTime = prefs.getBoolean(FIRST_TIME, true);
+//        if (isFirstTime) {
+//            SharedPreferences.Editor editor = getSharedPreferences(MENU_PREF_NAME, MODE_PRIVATE).edit();
+//            editor.putBoolean(FIRST_TIME, false);
+//            editor.apply();
+//
+////            Intent i = new Intent(getApplicationContext(), SplashActivity.class);
+////            startActivity(i);
+//        }
 
         setContentView(R.layout.activity_menu);
         liner_button = (LinearLayout)findViewById(R.id.liner_button);

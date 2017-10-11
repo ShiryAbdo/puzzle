@@ -41,8 +41,8 @@ public class WordSearchManager {
     // hard7 level
     public final static int HARD7_MIN_WORDLENGTH = 7;
     public final static int HARD7_MAX_WORDLENGTH = 7;
-    public final static int HARD7_MIN_DIMENSION_OFFSET = 3;
-    public final static int HARD7_MAX_DIMENSION_OFFSET = 3;
+    public final static int HARD7_MIN_DIMENSION_OFFSET = 0;
+    public final static int HARD7_MAX_DIMENSION_OFFSET = 0;
 
     // hard8 level
     public final static int HARD8_MIN_WORDLENGTH = 8;

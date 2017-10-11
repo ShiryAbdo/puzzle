@@ -33,7 +33,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:src="@drawable/word" />
+                android:src="@drawable/cross" />
 
             />
 

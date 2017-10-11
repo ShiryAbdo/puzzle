@@ -11,7 +11,12 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.swaqny.crossword.puzzl.challenge.R;
 import com.swaqny.crossword.puzzl.challenge.adapters.WordSearchPagerAdapter;
 import com.swaqny.crossword.puzzl.challenge.framework.WordSearchManager;
@@ -26,6 +31,7 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
     private final static long ON_SKIP_HIGHLIGHT_WORD_DELAY_IN_MS = 500;
 
     private final static int TIMER_GRANULARITY_IN_MS = 50;
+    private AdView mAdView;
 
     /**
      * Current number of grid views that have been instantiated
@@ -47,6 +53,7 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
     private int mSkipped;
     private WordSearchPagerAdapter mWordSearchPagerAdapter;
     int timer_pius;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +73,18 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
         currentItem = 0;
         mScore = 0;
         mSkipped = 0;
-        // Create the adapter that will return a fragment for each of the
-        // primary sections of the activity.
-        /*
-          The {@link android.support.v4.view.PagerAdapter} that will provide
-          fragments for each of the sections. We use a
-          {@link FragmentPagerAdapter} derivative, which will keep every
-          loaded fragment in memory. If this becomes too memory intensive, it
-          may be best to switch to a
-          {@link android.support.v13.app.FragmentStatePagerAdapter}.
-         */
+
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .setRequestAgent("android_studio:ad_template").build();
+        AdRequest adRequest = new AdRequest.Builder().build();
+
+        adView.loadAd(adRequest);
+
+        // Create the InterstitialAd and set the adUnitId (defined in values/strings.xml).
+        mInterstitialAd = newInterstitialAd();
+        loadInterstitial();
         mWordSearchPagerAdapter = new WordSearchPagerAdapter(getFragmentManager(), getApplicationContext());
 
         // Set up the ViewPager with the sections adapter.
@@ -137,10 +146,56 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
         mPauseDialogFragment.show(getFragmentManager(), "dialog");
     }
 
+    private InterstitialAd newInterstitialAd() {
+        InterstitialAd interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+             }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+             }
+
+            @Override
+            public void onAdClosed() {
+                Intent i = new Intent(getApplicationContext(), ResultsActivity.class);
+                i.putExtra("score", mScore);
+                i.putExtra("skipped", mSkipped);
+                startActivity(i);
+                finish();
+             }
+        });
+        return interstitialAd;
+    }
+
+    private void loadInterstitial() {
+        // Disable the next level button and load the ad.
+         AdRequest adRequest = new AdRequest.Builder()
+                .setRequestAgent("android_studio:ad_template").build();
+        mInterstitialAd.loadAd(adRequest);
+    }
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and reload the ad.
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+            goToNextLevel();
+        }
+    }
+    private void goToNextLevel() {
+        // Show the next level and reload the ad to prepare for the level after.
+         mInterstitialAd = newInterstitialAd();
+        loadInterstitial();
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bSkip:
+
 //                analyticsTrackEvent(R.string.ga_click_skip);
                 if (ON_SKIP_HIGHLIGHT_WORD) {
                     ((WordSearchFragment) mWordSearchPagerAdapter.getFragmentFromCurrentItem(currentItem)).highlightWord();
@@ -279,14 +334,30 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
             mGameState = GameState.PLAY;
         else
             pauseGameplay();
+
+        if (mAdView != null) {
+            mAdView.resume();
+        }
     }
 
     @Override
     protected void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
         super.onPause();
+
         stopCountDownTimer();
     }
 
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
     @Override
     public void onBackPressed() {
         pauseGameplay();
@@ -318,11 +389,12 @@ public class WordSearchActivity extends Activity implements WordSearchGridView.W
                     }
 
                     public void onFinish() {
-                        Intent i = new Intent(getApplicationContext(), ResultsActivity.class);
-                        i.putExtra("score", mScore);
-                        i.putExtra("skipped", mSkipped);
-                        startActivity(i);
-                        finish();
+                        if(mScore==0){
+                            showInterstitial();
+                        }
+
+
+
                     }
                 }).start();
             }

@@ -18,7 +18,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
-        imageView2 =(ImageView)findViewById(R.id.imageView2);
+        imageView2 =(ImageView)findViewById(R.id.fire);
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

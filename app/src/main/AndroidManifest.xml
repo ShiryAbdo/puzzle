@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.swaqny.crossword.puzzl.challenge">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
 
     <application
         android:allowBackup="true"
@@ -14,16 +14,18 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.gameplay.WordSearchActivity" />
+            android:name=".ui.gameplay.WordSearchActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.MenuActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
-            android:name=".ui.ResultsActivity" />
+            android:name=".ui.ResultsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,6 +38,16 @@
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <!-- This meta-data tag is required to use Google Play Services. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main">
+
+        </activity>
     </application>
 
 </manifest>
